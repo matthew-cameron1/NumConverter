@@ -20,6 +20,7 @@ public class RomanToIntConverter implements IConverterService<String> {
 
     public Integer convert(String toConvert) {
         int decimal = 0;
+
         for (int i = 0; i < toConvert.length(); i++) {
             char c = toConvert.charAt(i);
             int val1 = relationMap.get(String.valueOf(c));
@@ -35,7 +36,11 @@ public class RomanToIntConverter implements IConverterService<String> {
                     decimal += (val2 - val1);
                 }
             }
+            else {
+                decimal += val1;
+                return decimal;
+            }
         }
-        return decimal;
+        return decimal + convert(toConvert.substring(1));
     }
 }
