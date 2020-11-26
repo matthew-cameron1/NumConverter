@@ -1,8 +1,11 @@
 package ca.innov8solutions.numconverter.converters;
 
+import org.springframework.stereotype.Service;
+
 import java.util.Map;
 import java.util.TreeMap;
 
+@Service("intToRomanService")
 public class IntToRomanConverter implements IConverterService<Integer> {
 
     private TreeMap<Integer, String> relationMap = new TreeMap<>();

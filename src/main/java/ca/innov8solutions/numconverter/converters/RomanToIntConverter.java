@@ -1,9 +1,12 @@
 package ca.innov8solutions.numconverter.converters;
 
+import org.springframework.stereotype.Service;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+@Service("romanToIntService")
 public class RomanToIntConverter implements IConverterService<String> {
 
     private TreeMap<String, Integer> relationMap = new TreeMap<>();
@@ -23,6 +26,7 @@ public class RomanToIntConverter implements IConverterService<String> {
 
         for (int i = 0; i < toConvert.length(); i++) {
             char c = toConvert.charAt(i);
+
             int val1 = relationMap.get(String.valueOf(c));
 
             if (i + 1 < toConvert.length()) {
